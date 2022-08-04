@@ -43,7 +43,50 @@ for (let i = 0; i < pokemonList.length; i++) { //conditionals added for weight
   document.write(pokemon1);
   let pokemon2 = "MewTwo(Height:2)-wow , this is big";
   document.write(pokemon2);
-  let pokemon3 = "machop(Height:2.2)";
+  let pokemon3 = "Kangaskhan(Height:2.2)";
   document.write(pokemon3);
   let pokemon4 = "Groudon(Height:3.5)";
   document.write(pokemon4);
+
+  let pokemonRepository = (function () {
+    let repository = [ ];
+    function add(pokemon) {
+      if (
+        typeof pokemon === "object" &&
+        "name" in pokemon &&
+        "height" in pokemon &&
+        "types" in pokemon
+      ) {
+        repository.push(pokemon);
+      } else {
+        console.log("pokemon is not correct");
+      }
+    }
+    function getAll() {
+      return repository;
+    }
+    function addListItem(pokemon) {
+      let pokemonList = document.querySelector(".pokemon-list");
+      let listpokemon = document.createElement("li");
+      let button = document.createElement("button");
+      button.innerText = pokemon.name;
+      button.classList.add("button1");
+      listpokemon.appendChild(button);
+      pokemonList.appendChild(listpokemon);
+      button.addEventListener('click', function()
+      {showDetails(pokemon)});
+    }
+    function showDetails(pokemon) {
+      console.log(pokemon);
+    }
+    return {
+      add: add,
+      getAll: getAll,
+      addListItem: addListItem
+    }
+  })();
+  pokemonRepository.add({ name: "Pikachu", height: 0.3, types: ["electric"] });
+  console.log(pokemonRepository.getAll());
+  pokemonRepository.getAll().forEach(function (pokemon) {
+    pokemonRepository.addListItem(pokemon);
+  });
