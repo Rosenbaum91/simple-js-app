@@ -23,12 +23,13 @@ let pokemonList = [
 
   pokemonList.forEach(function (pokemon) {
     if (pokemon.height < 2 && pokemon.height > 0.1) {
-      document.write(pokemon.name + "This is a small body/ ");
+      document.write(`<p>${pokemon.name} This is a small body!</p>`);
     }
     else if (pokemon.height < 3) {
-      document.write(pokemon.name + "This is a normal body/ ");
-    } else { document.write(pokemon.name + "This is a big body,wow!/"); }
+      document.write(`<p>${pokemon.name} This is a normal body!</p>`);
+    } else { document.write(`<p>${pokemon.name} This is a big body,wow!</p>`); }
   });
+
 
   let pokemonRepository = (function () {
     let repository = [ ];
