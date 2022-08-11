@@ -59,7 +59,7 @@ let pokemonRepository = (function () {
       $(buttonItem).addClass('button-class btn-block btn m1');
       pokemonItem.appendChild(buttonItem);  
       pokemonList.appendChild(pokemonItem);  
-      buttonItem.addEventListener("click", function (event) {
+      buttonItem.addEventListener("click", function (button) {
          showDetails(pokemon);
   
        });
@@ -73,6 +73,7 @@ let pokemonRepository = (function () {
       } else { document.write(`<p>${pokemon.name} This is a big body,wow!</p>`); }
      }
      function showDetails(pokemon) {
+      console.log(pokemon);
 
      }
      
