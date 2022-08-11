@@ -64,18 +64,19 @@ let pokemonRepository = (function () {
   
        });
      }
-    function showDetails(pokemon) {
-      console.log(pokemon);
-    }
+     function showDetails(pokemon) {
+
+     }
+     
     return {
       add: add,         
-      getAll: getAll,    
+      getAll: getAll,   
       addListItem: addListItem,  
-      loadList: loadList,
       showDetails: showDetails,
-      loadDetails: loadDetails
+      
     }
   })();
+  function loadList()
   pokemonRepository.loadList().then(function() {
     pokemonRepository.getAll().forEach(function (pokemon) {
       pokemonRepository.addListItem(pokemon);
