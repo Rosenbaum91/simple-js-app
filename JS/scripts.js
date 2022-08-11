@@ -64,6 +64,14 @@ let pokemonRepository = (function () {
   
        });
      }
+     function loadlist(){
+      if (pokemon.height < 2 && pokemon.height > 0.1) {
+        document.write(`<p>${pokemon.name} This is a small body!</p>`);
+      }
+      else if (pokemon.height < 3) {
+        document.write(`<p>${pokemon.name} This is a normal body!</p>`);
+      } else { document.write(`<p>${pokemon.name} This is a big body,wow!</p>`); }
+     }
      function showDetails(pokemon) {
 
      }
@@ -79,6 +87,6 @@ let pokemonRepository = (function () {
   function loadList()
   pokemonRepository.loadList().then(function() {
     pokemonRepository.getAll().forEach(function (pokemon) {
+    });
       pokemonRepository.addListItem(pokemon);
     });
-  });
