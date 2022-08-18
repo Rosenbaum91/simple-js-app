@@ -33,16 +33,18 @@ let pokemonRepository = (function () {
     return pokemonList;
   }
 
-  function addListItem(pokemon) {  
-    let pokemonList = document.querySelector(".pokemon-list");  
+  function addListItem(pokemon) { 
+    let pokemonListElement = document.querySelector('.pokemon-list');  
     let pokemonItem = document.createElement("li");
-    let buttonItem = document.createElement("button");  
+    let button = document.createElement('Mew');
+    let button = document.createElement('MewTwo');
+    let button = document.createElement('Kangaskhan');
+    let button = document.createElement('Groudon');
     buttonItem.classList.add("pokemonButton");
-    buttonItem.innerText = pokemon.name;
     pokemonItem.appendChild(buttonItem);  
     pokemonList.appendChild(pokemonItem);  
     buttonItem.addEventListener("click", function (button) {
-       showDetails(pokemon);
+       showDetails(pokemon); 
 
      });
    }
@@ -64,10 +66,5 @@ let pokemonRepository = (function () {
 })();
 
 pokemonRepository.getAll().forEach(function (pokemon) {
-  if (pokemon.height < 2 && pokemon.height > 0.1) {
-    document.write(`<p>${pokemon.name} This is a small body!</p>`);
-  }
-  else if (pokemon.height < 3) {
-    document.write(`<p>${pokemon.name} This is a normal body!</p>`);
-  } else { document.write(`<p>${pokemon.name} This is a big body,wow!</p>`); }
+  pokemonRepository.addListItem(pokemon); 
 });
