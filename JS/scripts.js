@@ -54,6 +54,12 @@ let pokemonRepository = (function () {
       }).catch(function (e) {
         console.error(e);
       });
+    }
+
+    function showDetails(pokemon) {
+      loadDetails(pokemon).then(function () {
+          console.log(pokemon);
+      });
     };
   
     return {
@@ -61,17 +67,10 @@ let pokemonRepository = (function () {
       getAll: getAll,
       addListItem: addListItem,
       loadList: loadList,
-      loadDetails: loadDetails
+      loadDetails: loadDetails,
+      showDetails: showDetails
     };
   })();
-  
-  
-  var img = document.createElement("img");
-  
-  img.src = "img/map.svg";
-  var src = document.getElementById("x");
-  
-  src.appendChild(img);
   
   
   pokemonRepository.loadList().then(function() {
